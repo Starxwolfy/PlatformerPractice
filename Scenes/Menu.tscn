@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://04nfgrmo66dn"]
+
+[ext_resource type="Texture2D" uid="uid://juq4hjnqdpem" path="res://Sprites/menu/normal/sky.png" id="1_ma218"]
+[ext_resource type="Texture2D" uid="uid://b6mcnkomu2opy" path="res://Sprites/menu/normal/grass.png" id="2_idohh"]
+[ext_resource type="Texture2D" uid="uid://bl1nwmm2158vo" path="res://Sprites/menu/normal/kitter.png" id="3_wfhf6"]
+[ext_resource type="Texture2D" uid="uid://bxfcegwhr1gfj" path="res://Sprites/menu/logo.png" id="4_3jcrr"]
+[ext_resource type="Script" uid="uid://cqaw0cge1euhk" path="res://Objects/menucam.gd" id="5_aobxe"]
+[ext_resource type="PackedScene" uid="uid://bd14quaad5miu" path="res://Objects/CharacterSelect.tscn" id="6_idohh"]
+
+[node name="Node2D" type="Node2D" unique_id=1708336988]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1278110597]
+
+[node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground" unique_id=825542805]
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(-34, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D" unique_id=754599572]
+position = Vector2(395, 225)
+texture = ExtResource("1_ma218")
+
+[node name="Parallax2D2" type="Parallax2D" parent="ParallaxBackground" unique_id=838516346]
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(-34, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=1081172187]
+position = Vector2(395, 225)
+texture = ExtResource("2_idohh")
+
+[node name="Parallax2D3" type="Parallax2D" parent="ParallaxBackground" unique_id=1916141814]
+scroll_scale = Vector2(0.64, 0.64)
+scroll_offset = Vector2(-34, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=962687761]
+position = Vector2(605, 295)
+texture = ExtResource("3_wfhf6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=1387529174]
+position = Vector2(243, 169)
+texture = ExtResource("4_3jcrr")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=820301043]
+position = Vector2(400, 301)
+script = ExtResource("5_aobxe")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1264696676]
+
+[node name="Node2D" parent="CanvasLayer" unique_id=407852867 instance=ExtResource("6_idohh")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -308.0
+offset_top = 56.0
+offset_right = -308.0
+offset_bottom = 56.0
+grow_horizontal = 2

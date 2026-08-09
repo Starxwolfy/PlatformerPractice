@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://y6lbugduxvu1"]
+
+[ext_resource type="Texture2D" uid="uid://2buotu4eeep3" path="res://Sprites/FX/Effects/healing.png" id="1_bw4md"]
+
+[sub_resource type="Curve" id="Curve_nk6d3"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.35915497, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yf5fn"]
+curve = SubResource("Curve_nk6d3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g4v7s"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(50, 50, 1)
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+gravity = Vector3(0, -5, 0)
+linear_accel_min = 49.999996
+linear_accel_max = 49.999996
+scale_min = 0.25
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_yf5fn")
+turbulence_noise_strength = 0.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" unique_id=241503343]
+z_index = 5
+texture = ExtResource("1_bw4md")
+speed_scale = 0.5
+randomness = 1.0
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_g4v7s")

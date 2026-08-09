@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c3gcj22oedtv8"]
+
+[ext_resource type="Script" uid="uid://c2d6qhbllh8k1" path="res://Objects/Blood.gd" id="1_oqck0"]
+[ext_resource type="Texture2D" uid="uid://cptnklkbwwb2k" path="res://Sprites/FX/Blood.png" id="2_8ghj5"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=633045513]
+script = ExtResource("1_oqck0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1391162962]
+texture = ExtResource("2_8ghj5")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dukvbw1sivpj6"]
+
+[ext_resource type="Script" uid="uid://bjeudgm447aub" path="res://Scripts/Global/ScriptsforGlobalScenes/audio.gd" id="1_y7vj5"]
+[ext_resource type="AudioStream" uid="uid://djqhf526412bf" path="res://Sound/Music/placeholdername.ogg" id="2_y7vj5"]
+
+[node name="Audio" type="Node" unique_id=951172576 node_paths=PackedStringArray("audio_to_play_to")]
+script = ExtResource("1_y7vj5")
+audio_to_play_to = NodePath("Starman")
+
+[node name="Starman" type="AudioStreamPlayer" parent="." unique_id=1845377272]
+process_mode = 3
+stream = ExtResource("2_y7vj5")

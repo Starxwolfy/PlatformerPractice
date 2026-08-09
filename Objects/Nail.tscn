@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cx0tmld7xiu6w"]
+
+[ext_resource type="Texture2D" uid="uid://j0u4cel71bil" path="res://Sprites/katter/nail.png" id="1_knchj"]
+[ext_resource type="Script" uid="uid://b76knqqrm64we" path="res://Data/Stats/HitboxData.gd" id="2_4v5dy"]
+[ext_resource type="Script" uid="uid://1ns8q5pjob07" path="res://Scripts/Objects/nail.gd" id="3_4v5dy"]
+
+[sub_resource type="Resource" id="Resource_knchj"]
+script = ExtResource("2_4v5dy")
+dmg = 2.0
+shakes = true
+shake = 5.0
+metadata/_custom_type_script = "uid://b76knqqrm64we"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(42, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(217.03741, 977.2026)
+
+[node name="Sprite2D" type="Sprite2D" unique_id=1416146686 node_paths=PackedStringArray("damagecol", "aimer", "actual_visual", "delte")]
+script = ExtResource("3_4v5dy")
+stats = SubResource("Resource_knchj")
+damagecol = NodePath("Collisionitself")
+aimer = NodePath("Targeter")
+actual_visual = NodePath("Sprite2D")
+delte = NodePath("Delete")
+coolness_add = 0.5
+speed = Vector2(500, 0)
+
+[node name="Collisionitself" type="Area2D" parent="." unique_id=397952525]
+collision_layer = 260
+collision_mask = 260
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisionitself" unique_id=470646796]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Targeter" type="Area2D" parent="." unique_id=2093140683]
+scale = Vector2(-4.098372, 1.5621122)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Targeter" unique_id=1806982178]
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=522002674]
+texture = ExtResource("1_knchj")
+
+[node name="Delete" type="Timer" parent="." unique_id=240575509]
+wait_time = 2.0
+one_shot = true

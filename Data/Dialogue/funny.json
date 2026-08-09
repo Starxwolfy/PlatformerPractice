@@ -1,0 +1,12 @@
+{
+	"1":{
+		"Character": "Zombit",
+		"Text": "A",
+		"Expression": "Normal"
+		},
+	"2":{
+		"Character": "Zombit",
+		"Text": "a",
+		"Expression": "Sad"
+		}
+}

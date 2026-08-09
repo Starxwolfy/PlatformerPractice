@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d2dfrirfjpy3m"]
+
+[ext_resource type="Texture2D" uid="uid://ded2osc1tiwv3" path="res://Sprites/Bumper/Bumper.png" id="1_4s3kj"]
+[ext_resource type="Script" uid="uid://cvfkntog650td" path="res://Scripts/Objects/bumper.gd" id="1_ep6cx"]
+[ext_resource type="AudioStream" uid="uid://dkymm7geqowvg" path="res://Sound/SFX/S1_B4.wav" id="3_nxmne"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ep6cx"]
+radius = 20.0
+
+[node name="Area2D" type="Area2D" unique_id=883796393]
+script = ExtResource("1_ep6cx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=871598660]
+texture = ExtResource("1_4s3kj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=646851428]
+position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_ep6cx")
+
+[node name="S1B4" type="AudioStreamPlayer2D" parent="." unique_id=955201417]
+stream = ExtResource("3_nxmne")
+volume_db = -5.0

@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://bd14quaad5miu"]
+
+[ext_resource type="Shader" uid="uid://dxskudf4eho4b" path="res://Shaders/quantize.gdshader" id="1_2hbhn"]
+[ext_resource type="Texture2D" uid="uid://1hdb7b1qh6lj" path="res://Sprites/UI/close button.png" id="2_5w3u2"]
+[ext_resource type="Script" uid="uid://50id333e0v3f" path="res://Objects/CSS/css.gd" id="3_7ab47"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yf5fn"]
+shader = ExtResource("1_2hbhn")
+shader_parameter/texture_mode = 0
+shader_parameter/alpha_mode = 0
+shader_parameter/quantize_size = 2
+shader_parameter/snap_to_world = true
+shader_parameter/limit_subpixels = true
+shader_parameter/dither_enabled = true
+shader_parameter/dither_pattern = 3
+shader_parameter/levels = 10
+shader_parameter/contrast = 1.0
+shader_parameter/brightness = 0.0
+shader_parameter/average = 0.0
+shader_parameter/palette_mode = 0
+
+[sub_resource type="Gradient" id="Gradient_7ab47"]
+colors = PackedColorArray(0.6378432, 0.6378432, 0.63784313, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yf5fn"]
+gradient = SubResource("Gradient_7ab47")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_5w3u2"]
+colors = PackedColorArray(1.2995303e-06, 0, 0.5015646, 1, 0, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_5w3u2")
+width = 347
+height = 40
+
+[sub_resource type="SystemFont" id="SystemFont_g4v7s"]
+subpixel_positioning = 0
+
+[node name="Node2D" type="Control" unique_id=407852867]
+material = SubResource("ShaderMaterial_yf5fn")
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=353897089]
+use_parent_material = true
+layout_mode = 0
+offset_right = 637.0
+offset_bottom = 476.0
+texture = SubResource("GradientTexture2D_yf5fn")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=926646279]
+use_parent_material = true
+layout_mode = 0
+offset_right = 637.0
+offset_bottom = 40.0
+texture = SubResource("GradientTexture2D_g4v7s")
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect" unique_id=797348720]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -87.0
+offset_top = 3.0
+offset_right = -27.0
+offset_bottom = 31.0
+grow_horizontal = 0
+scale = Vector2(1.3357915, 1.2021147)
+texture_normal = ExtResource("2_5w3u2")
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=1234737897]
+use_parent_material = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(1.7158328, 1.7158328)
+theme_override_fonts/font = SubResource("SystemFont_g4v7s")
+text = "SELECT A CHARACTER"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1191904339 node_paths=PackedStringArray("grid")]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 637.0
+offset_bottom = 476.0
+script = ExtResource("3_7ab47")
+grid = NodePath("GridContainer")
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer" unique_id=1307629570]
+layout_mode = 2
+columns = 20

@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://c1san742vmtoa"]
+
+[ext_resource type="FontFile" uid="uid://b7xb3kxn4vp5w" path="res://Fonts/Counter.png" id="1_q6av2"]
+
+[node name="VBoxContainer" type="VBoxContainer" unique_id=107355984]
+offset_right = 10.0
+offset_bottom = 216.0
+
+[node name="10" type="Label" parent="." unique_id=1129000805]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_q6av2")
+text = "0"
+
+[node name="9" type="Label" parent="." unique_id=1019360155]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_q6av2")
+text = "9"
+
+[node name="8" type="Label" parent="." unique_id=470165343]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_q6av2")
+text = "8"
+
+[node name="7" type="Label" parent="." unique_id=1635787003]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_q6av2")
+text = "7"
+
+[node name="6" type="Label" parent="." unique_id=1237258560]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_q6av2")
+text = "6"
+
+[node name="5" type="Label" parent="." unique_id=527264903]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_q6av2")
+text = "5"
+
+[node name="4" type="Label" parent="." unique_id=591417048]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_q6av2")
+text = "4"
+
+[node name="3" type="Label" parent="." unique_id=1063482212]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_q6av2")
+text = "3"
+
+[node name="2" type="Label" parent="." unique_id=1149142076]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_q6av2")
+text = "2"
+
+[node name="1" type="Label" parent="." unique_id=1235631247]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_q6av2")
+text = "1"
+
+[node name="0" type="Label" parent="." unique_id=405911678]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_q6av2")
+text = "0"

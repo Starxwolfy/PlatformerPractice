@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cxrdofrnghhij"]
+
+[ext_resource type="Texture2D" uid="uid://c70hbhtuv33ft" path="res://Watermark/watermark-ja.png" id="1_8pypq"]
+[ext_resource type="Script" uid="uid://c5d1xfah1kevx" path="res://Scripts/Objects/watermark.gd" id="2_eyucu"]
+[ext_resource type="PackedScene" uid="uid://cmqy4kxnaofu" path="res://Scenes/playstate.tscn" id="3_eyucu"]
+
+[node name="ColorRect" type="ColorRect" unique_id=1931890999]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Watermark" type="Sprite2D" parent="." unique_id=740096758]
+position = Vector2(395, 306)
+texture = ExtResource("1_8pypq")
+script = ExtResource("2_eyucu")
+CHANGE_SCENE_TO = ExtResource("3_eyucu")

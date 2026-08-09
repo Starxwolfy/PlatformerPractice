@@ -1,0 +1,255 @@
+[gd_scene format=3 uid="uid://ckio6npat64ju"]
+
+[ext_resource type="Shader" uid="uid://cxp024ow8dljq" path="res://Shaders/main.gdshader" id="1_tn6os"]
+[ext_resource type="Script" uid="uid://dm5omwjl15avn" path="res://Objects/Hazards/Enemy.gd" id="2_ibknr"]
+[ext_resource type="Script" uid="uid://bmromneyrwtl5" path="res://Data/Stats/Stat.gd" id="3_bav4j"]
+[ext_resource type="Script" uid="uid://dsxwq66ppj3re" path="res://Scripts/Objects/hurtbox.png.gd" id="4_vuwxu"]
+[ext_resource type="Texture2D" uid="uid://de4728bawfhus" path="res://Sprites/Enemies/dummy/MiniBossDummy/MiniBoss Dummy.png" id="5_tn6os"]
+[ext_resource type="Script" uid="uid://7vkvsr2t2yv0" path="res://Objects/Auto-Adjust.gd" id="6_0bklr"]
+[ext_resource type="Texture2D" uid="uid://djnjicewp2e8g" path="res://Sprites/Enemies/dummy/MiniBossDummy/MiniBoss Dummy_n.png" id="6_ibknr"]
+[ext_resource type="Texture2D" uid="uid://bsfhjmnqqc6pl" path="res://Sprites/HUD/Bar/healthbar_BG.png" id="7_33yux"]
+[ext_resource type="Texture2D" uid="uid://c02157hp1dinb" path="res://Sprites/HUD/Bar/healthbar_border.png" id="8_06exq"]
+[ext_resource type="Texture2D" uid="uid://c75sh4naksm8" path="res://Sprites/HUD/Bar/healthbar_fill.png" id="9_wmckj"]
+[ext_resource type="Script" uid="uid://cjb7d1sn0jkqv" path="res://Objects/HUD/healthBarr.gd" id="10_f7rje"]
+[ext_resource type="Script" uid="uid://ynt4pr2mgvle" path="res://Scripts/Objects/healthicon.gd" id="12_1qy8x"]
+[ext_resource type="Texture2D" uid="uid://dlpbdhhxc3ikx" path="res://Sprites/icons/Buddy.png" id="12_ibknr"]
+[ext_resource type="Script" uid="uid://b3gyjmxqy2eei" path="res://Objects/StateMachine.gd" id="13_x82cu"]
+[ext_resource type="Script" uid="uid://dqx8paumxsp5o" path="res://Objects/States/Enemies/Kit Universe/Dummy/Idle.gd" id="14_g02kg"]
+[ext_resource type="Script" uid="uid://dsdow3872ftlj" path="res://Objects/States/Enemies/Global/Dead.gd" id="15_wvi50"]
+[ext_resource type="Script" uid="uid://3oqqfx71tmch" path="res://Objects/States/Enemies/Global/Stun.gd" id="16_hrcj2"]
+[ext_resource type="Script" uid="uid://cbdegj0qlshed" path="res://Objects/Stats/health_container.gd" id="17_4m62j"]
+[ext_resource type="AudioStream" uid="uid://7gr8ujksq5hk" path="res://Sound/SFX/kill.ogg" id="18_glja6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
+shader = ExtResource("1_tn6os")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/intens = 0.0
+
+[sub_resource type="Resource" id="Resource_g4v7s"]
+script = ExtResource("3_bav4j")
+speed = 200.0
+acceleration = 1200.0
+metadata/_custom_type_script = "uid://bmromneyrwtl5"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(119, 126)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tn6os"]
+diffuse_texture = ExtResource("5_tn6os")
+normal_texture = ExtResource("6_ibknr")
+
+[sub_resource type="Curve" id="Curve_g4v7s"]
+_limits = [0.0, 416.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 416.0, 0, 1, Vector2(1, 416), 416.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_se4lk"]
+resource_name = "Dead"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(595, 0, 119, 125)]
+}
+
+[sub_resource type="Animation" id="Animation_qt8m4"]
+resource_name = "Idle"
+length = 3.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.8, 2.9, 3, 3.1, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 119, 125), Rect2(119, 0, 119, 125), Rect2(238, 0, 119, 125), Rect2(119, 0, 119, 125), Rect2(476, 0, 119, 125), Rect2(0, 0, 119, 125)]
+}
+
+[sub_resource type="Animation" id="Animation_rr6k6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(6, 4, 63, 58)]
+}
+
+[sub_resource type="Animation" id="Animation_6wlox"]
+resource_name = "Stun"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(595, 0, 119, 125)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_se4lk"]
+_data = {
+&"Dead": SubResource("Animation_se4lk"),
+&"Idle": SubResource("Animation_qt8m4"),
+&"RESET": SubResource("Animation_rr6k6"),
+&"Stun": SubResource("Animation_6wlox")
+}
+
+[node name="Dummy" type="CharacterBody2D" unique_id=985384398 node_paths=PackedStringArray("machine", "graphic", "player", "health", "hrtbox")]
+material = SubResource("ShaderMaterial_g4v7s")
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("2_ibknr")
+stats = SubResource("Resource_g4v7s")
+machine = NodePath("statemachine")
+fake_dir = 1.0
+graphic = NodePath("Graphic")
+player = NodePath("AnimationPlayer")
+health = NodePath("HealthContainer")
+armored = true
+hrtbox = NodePath("hurtbox")
+full_flash = Array[float]([0.2, 0.0])
+metadata/_custom_type_script = "uid://b6a5mw03474md"
+
+[node name="hurtbox" type="Area2D" parent="." unique_id=758351357 node_paths=PackedStringArray("health", "character")]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("4_vuwxu")
+health = NodePath("../HealthContainer")
+character = NodePath("..")
+original_scale = Vector2(1, 1)
+color = Color(0.6745098, 0.19607843, 0.19607843, 1)
+flash_color = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://dsxwq66ppj3re"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=559346521]
+position = Vector2(-0.5, -79)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Graphic" type="Sprite2D" parent="." unique_id=1745920000]
+z_index = 1
+use_parent_material = true
+texture = SubResource("CanvasTexture_tn6os")
+offset = Vector2(0, -29)
+region_enabled = true
+region_rect = Rect2(6, 4, 63, 58)
+script = ExtResource("6_0bklr")
+
+[node name="RayCast2D" type="RayCast2D" parent="Graphic" unique_id=1453928343]
+position = Vector2(35, -8)
+target_position = Vector2(0, 17.5)
+collision_mask = 256
+
+[node name="Wait" type="Timer" parent="Graphic/RayCast2D" unique_id=1196136339]
+
+[node name="RayCast2D2" type="RayCast2D" parent="Graphic" unique_id=1615041005]
+position = Vector2(0, -5)
+target_position = Vector2(64, 0)
+
+[node name="Wait" type="Timer" parent="Graphic/RayCast2D2" unique_id=1700502753]
+
+[node name="HealthBar" type="TextureProgressBar" parent="Graphic" unique_id=8561650 node_paths=PackedStringArray("health", "health_icon")]
+anchors_preset = -1
+anchor_left = 0.532
+anchor_top = -0.55200005
+anchor_right = 0.532
+anchor_bottom = -0.55200005
+offset_left = -130.51599
+offset_top = -63.984
+offset_right = 269.48398
+offset_bottom = -44.984
+scale = Vector2(0.32999998, 0.32999998)
+value = 100.0
+texture_under = ExtResource("7_33yux")
+texture_over = ExtResource("8_06exq")
+texture_progress = ExtResource("9_wmckj")
+tint_under = Color(0, 0, 0, 1)
+script = ExtResource("10_f7rje")
+health = NodePath("../../HealthContainer")
+health_icon = NodePath("healthIcon")
+metadata/_custom_type_script = "uid://cjb7d1sn0jkqv"
+
+[node name="healthIcon" type="Sprite2D" parent="Graphic/HealthBar" unique_id=1112809079 node_paths=PackedStringArray("current_HP")]
+position = Vector2(416, 0)
+texture = ExtResource("12_ibknr")
+hframes = 3
+script = ExtResource("12_1qy8x")
+amount_of_frames = 3
+current_HP = NodePath("../../../HealthContainer")
+frame_values = Dictionary[int, int]({
+0: 50,
+1: 20,
+2: 80
+})
+posmaxmin = SubResource("Curve_g4v7s")
+metadata/_custom_type_script = "uid://ynt4pr2mgvle"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Graphic" unique_id=670320366]
+position = Vector2(-11, -10)
+rect = Rect2(-50, -83, 121, 127)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1920756902]
+position = Vector2(-0.5, -79)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1431428319]
+libraries/ = SubResource("AnimationLibrary_se4lk")
+
+[node name="statemachine" type="Node" parent="." unique_id=1166990916 node_paths=PackedStringArray("inital_state")]
+script = ExtResource("13_x82cu")
+inital_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://b3gyjmxqy2eei"
+
+[node name="Idle" type="Node" parent="statemachine" unique_id=2087677302 node_paths=PackedStringArray("actor")]
+script = ExtResource("14_g02kg")
+actor = NodePath("../..")
+metadata/_custom_type_script = "uid://dh3hcdvfb32yv"
+
+[node name="Dead" type="Node" parent="statemachine" unique_id=430849101 node_paths=PackedStringArray("area", "kill_noise", "notifier", "actor")]
+script = ExtResource("15_wvi50")
+area = NodePath("../../hurtbox")
+kill_noise = NodePath("../../Node2D/Kill")
+notifier = NodePath("../../Graphic/VisibleOnScreenNotifier2D")
+actor = NodePath("../..")
+metadata/_custom_type_script = "uid://dde8uwi2vcbld"
+
+[node name="Stun" type="Node" parent="statemachine" unique_id=1907562111 node_paths=PackedStringArray("actor")]
+script = ExtResource("16_hrcj2")
+actor = NodePath("../..")
+metadata/_custom_type_script = "uid://dde8uwi2vcbld"
+
+[node name="HealthContainer" type="Node" parent="." unique_id=1617546203]
+script = ExtResource("17_4m62j")
+max_health = 500.0
+health = 500.0
+metadata/_custom_type_script = "uid://cbdegj0qlshed"
+
+[node name="Node2D" type="Node2D" parent="." unique_id=622296805]
+
+[node name="Kill" type="AudioStreamPlayer2D" parent="Node2D" unique_id=1295379815]
+stream = ExtResource("18_glja6")

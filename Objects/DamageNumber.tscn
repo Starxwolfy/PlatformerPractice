@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dvhopixq8yhtd"]
+
+[ext_resource type="FontFile" uid="uid://63icq74yjqsh" path="res://Fonts/damage.png" id="1_hkmfm"]
+[ext_resource type="Script" uid="uid://dupcxblmpjv14" path="res://Objects/damage_number.gd" id="2_o3exc"]
+
+[node name="Label" type="Label" unique_id=1140549239 node_paths=PackedStringArray("notifier")]
+z_index = 100
+offset_right = 16.0
+offset_bottom = 16.0
+scale = Vector2(3, 1)
+theme_override_fonts/font = ExtResource("1_hkmfm")
+text = "1900"
+script = ExtResource("2_o3exc")
+notifier = NodePath("VisibleOnScreenNotifier2D")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=670886166]

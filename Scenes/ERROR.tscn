@@ -1,0 +1,251 @@
+[gd_scene format=3 uid="uid://be20th1q7i88p"]
+
+[ext_resource type="Texture2D" uid="uid://brjlwiq1tf88q" path="res://Sprites/ERROR/sky.png" id="1_450a2"]
+[ext_resource type="Texture2D" uid="uid://bb5rqstqm5io" path="res://Sprites/ERROR/Zombit-Nyan.png" id="2_k3gl4"]
+[ext_resource type="AudioStream" uid="uid://dhw8faag8n6qj" path="res://Sound/Music/Error/nyancat.ogg" id="3_hsyd5"]
+[ext_resource type="Texture2D" uid="uid://ddi46nc2kt28c" path="res://Sprites/ERROR/error.png" id="4_aopqn"]
+[ext_resource type="Script" uid="uid://bh02k2pd17qu6" path="res://Objects/Error/errortexture.gd" id="5_p8nxs"]
+[ext_resource type="Texture2D" uid="uid://baen4s2q76y82" path="res://Sprites/ERROR/Zombit-Nyanrainbow.png" id="6_yod7a"]
+[ext_resource type="Script" uid="uid://gktx6c2e84jo" path="res://Objects/Error/Diag.gd" id="7_njq6k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fitgs"]
+atlas = ExtResource("6_yod7a")
+region = Rect2(0, 0, 96, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7osa"]
+atlas = ExtResource("6_yod7a")
+region = Rect2(96, 0, 96, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_fitgs")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_v7osa")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_v7osa")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_fitgs")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8nxs"]
+atlas = ExtResource("2_k3gl4")
+region = Rect2(0, 0, 39, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yod7a"]
+atlas = ExtResource("2_k3gl4")
+region = Rect2(39, 0, 39, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njq6k"]
+atlas = ExtResource("2_k3gl4")
+region = Rect2(78, 0, 39, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y21ib"]
+atlas = ExtResource("2_k3gl4")
+region = Rect2(0, 23, 39, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihanf"]
+atlas = ExtResource("2_k3gl4")
+region = Rect2(39, 23, 39, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_p8nxs")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_yod7a")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_njq6k")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_y21ib")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ihanf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="SystemFont" id="SystemFont_yf5fn"]
+font_names = PackedStringArray("Comic Sans MS")
+
+[sub_resource type="Animation" id="Animation_hsyd5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_aopqn"]
+resource_name = "play"
+length = 3.62
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.62),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.62),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p8nxs"]
+_data = {
+&"RESET": SubResource("Animation_hsyd5"),
+&"play": SubResource("Animation_aopqn")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1284734277]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1286194866]
+z_index = -2
+repeat_size = Vector2(800, 0)
+autoscroll = Vector2(-200, 0)
+repeat_times = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=489966648]
+texture_repeat = 2
+texture = ExtResource("1_450a2")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 800, 600)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1935209866]
+position = Vector2(136, 299)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+autoplay = "default"
+frame = 2
+frame_progress = 0.17832838
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=845168328]
+position = Vector2(400, 300)
+scale = Vector2(5.4130435, 5.4130435)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.57010794
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=84097300]
+stream = ExtResource("3_hsyd5")
+volume_db = -34.666
+autoplay = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1113096407]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 308.0
+offset_top = 96.0
+offset_right = 433.0
+offset_bottom = 140.0
+grow_horizontal = 2
+pivot_offset = Vector2(62, 0)
+texture = ExtResource("4_aopqn")
+script = ExtResource("5_p8nxs")
+speed = 2.0
+ampitude = 10.0
+og_posy = 87.0
+
+[node name="Label" type="RichTextLabel" parent="TextureRect" unique_id=153396340]
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 9.5
+offset_top = 29.0
+offset_right = 10.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = SubResource("SystemFont_yf5fn")
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_njq6k")
+errorstrings = {
+7: "must have been the wind",
+43: "what did you feed the parser?",
+"crash": "godot has CRASHED"
+}
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect" unique_id=368732298]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 46.0
+texture = ExtResource("4_aopqn")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1262419915]
+offset_right = 800.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=601711007]
+libraries/ = SubResource("AnimationLibrary_p8nxs")
+autoplay = &"play"

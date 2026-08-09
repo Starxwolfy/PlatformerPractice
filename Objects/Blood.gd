@@ -1,0 +1,1 @@
+class_name Blood extends CharacterBody2D
