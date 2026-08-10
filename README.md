@@ -14,3 +14,4 @@ The music is mine (except nyan cat), and so are the sprites, if you are wanting 
 - Make UI Dynamic [HIGH PRIORITY]
 - Add a new Zombit ability (Bomb) [HIGH PRIORITY]
 - Add Stage Selector and fully functional Character Selector [HIGH PRIORITY]
+- Rewrite anything that is WET [LOW PRIORITY]
