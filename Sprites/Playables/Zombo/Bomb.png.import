@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c86xfnsr6lrg7"
-path="res://.godot/imported/MPSS_Mario.webp-831cec187b005cb2b7af44680cdd16d1.ctex"
+uid="uid://caaymmy2ig4n1"
+path="res://.godot/imported/Bomb.png-1f9ef7e34297f1f7c9a078e289350519.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/bullshit/MPSS_Mario.webp"
-dest_files=["res://.godot/imported/MPSS_Mario.webp-831cec187b005cb2b7af44680cdd16d1.ctex"]
+source_file="res://Sprites/Playables/Zombo/Bomb.png"
+dest_files=["res://.godot/imported/Bomb.png-1f9ef7e34297f1f7c9a078e289350519.ctex"]
 
 [params]
 

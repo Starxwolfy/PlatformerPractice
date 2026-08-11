@@ -131,8 +131,8 @@ fake_dir = 1.0
 graphic = NodePath("Graphic")
 player = NodePath("AnimationPlayer")
 health = NodePath("HealthContainer")
-full_flash = Array[float]([0.25, 0.0])
 hrtbox = NodePath("hurtbox")
+full_flash = Array[float]([0.2, 0.0])
 metadata/_custom_type_script = "uid://b6a5mw03474md"
 
 [node name="hurtbox" type="Area2D" parent="." unique_id=758351357 node_paths=PackedStringArray("health", "character")]

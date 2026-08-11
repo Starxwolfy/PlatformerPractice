@@ -35,7 +35,7 @@
 [ext_resource type="AudioStream" uid="uid://7gr8ujksq5hk" path="res://Sound/SFX/kill.ogg" id="27_cw2q2"]
 [ext_resource type="Script" uid="uid://cmdneboporwng" path="res://Scripts/Abilities/ZombitAbilties.gd" id="30_iumjk"]
 [ext_resource type="Script" uid="uid://cte08h0n7yf0e" path="res://Objects/Components/face_handler.gd" id="36_muhbb"]
-[ext_resource type="AudioStream" uid="uid://cwhflewuqi7fq" path="res://Sound/SFX/CharacterSpecific/Zombit/mario-meow.mp3" id="36_xd7l4"]
+[ext_resource type="AudioStream" uid="uid://cwhflewuqi7fq" path="res://Sound/SFX/CharacterSpecific/Zombit/meow.mp3" id="36_xd7l4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hfila"]
 shader = ExtResource("1_tyfve")

@@ -9,10 +9,17 @@ var _tweener: Tween
 #region Functions
 
 
-func parse_json(json: JSON) -> Variant:
+func parse_json(json: Variant) -> Variant:
 	var jsoner: JSON = JSON.new()
 	var returner = JSON.stringify(json.data)
 	var data: Error = jsoner.parse(returner)
+	if data != OK:
+		CoolUtils.handle_error(data)
+	return jsoner.data
+	
+func parse_settings(json: Variant) -> Variant:
+	var jsoner: JSON = JSON.new()
+	var data: Error = jsoner.parse(json)
 	if data != OK:
 		CoolUtils.handle_error(data)
 	return jsoner.data
@@ -119,6 +126,8 @@ func display_damage(damage: float, character: BaseChar, color: Color):
 	character.get_parent().add_child(dmgnum)
 	
 func flash(array: Array, color: Color, mat: ShaderMaterial, tween: Tween):
+	if not Settings.saved_values["Shaders"]:
+		return
 	if tween:
 		tween.kill()
 	mat.set_shader_parameter("flash_color", color)
