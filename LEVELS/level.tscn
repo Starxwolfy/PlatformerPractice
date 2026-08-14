@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bwqbv760p8d0n" path="res://Objects/Hazards/deathbarrier.gd" id="7_v6oyy"]
 [ext_resource type="Texture2D" uid="uid://cqjuqd6lhqs0s" path="res://Sprites/LIGHTS/normal.webp" id="8_d41sk"]
 [ext_resource type="PackedScene" uid="uid://dkk8kqatgoyfv" path="res://Characters/Zombit.tscn" id="9_dcw2r"]
+[ext_resource type="PackedScene" uid="uid://c0xx2sc638n21" path="res://Objects/Settings Menu.tscn" id="10_h5oek"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ldfqf"]
 texture = ExtResource("3_htqcn")
@@ -160,6 +161,31 @@ sources/1 = SubResource("TileSetScenesCollectionSource_na3j2")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjwno"]
 size = Vector2(3900, 1892)
 
+[sub_resource type="GDScript" id="GDScript_h5oek"]
+resource_name = "DEBUG"
+script/source = "extends Control
+
+const TWEEN_VALS = {
+	false: -70.0,
+	true: 240.0
+}
+
+@export var tab: TabContainer
+
+var tween: Tween
+
+var is_open: bool = false
+
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_key_pressed(KEY_ESCAPE):
+		if tween:
+			tween.kill()
+		is_open = !is_open
+		tween = create_tween()
+		tween.tween_property(tab, \"position:x\", TWEEN_VALS[is_open], 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+		
+"
+
 [node name="Node2D" type="Node2D" unique_id=2052544660]
 script = ExtResource("1_rsrl0")
 music = ExtResource("2_rsrl0")
@@ -204,3 +230,33 @@ offset_top = 594.0
 offset_right = 701.0
 offset_bottom = 617.0
 text = "Super Armored Dummy"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1527112757]
+layer = 5
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1994695874 node_paths=PackedStringArray("tab")]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -88.25
+offset_right = 1.5263214
+offset_bottom = 88.25
+grow_vertical = 2
+mouse_filter = 2
+script = SubResource("GDScript_h5oek")
+tab = NodePath("TabContainer")
+
+[node name="TabContainer" parent="CanvasLayer/Control" unique_id=541502571 instance=ExtResource("10_h5oek")]
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9850001
+anchor_top = 0.44300002
+anchor_right = 0.9850001
+anchor_bottom = 0.44300002
+offset_left = 2.0965576
+offset_top = -115.93951
+offset_right = 310.09656
+offset_bottom = 116.06049

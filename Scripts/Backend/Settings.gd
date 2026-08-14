@@ -28,13 +28,18 @@ func _load() -> void:
 	done.emit(saved_values)
 		
 func _get_specific_value(key: String):
-	if saved_values.has(key):
+	if saved_values.has(key) and saved_values.get(key) != null:
 		return saved_values.get(key)
 	else:
 		var json = CoolUtils.parse_json(DEFAULTS)
 		for i in json:
 			if i == key:
 				return json[key]
+				
+func contains_language_quene():
+	if queued_values.has("Language"):
+		Language.cur_lang = saved_values.get("Language", "en")
+		get_tree().reload_current_scene()
 	
 func _save() -> void:
 	if queued_values.is_empty():
@@ -42,9 +47,11 @@ func _save() -> void:
 	for key in queued_values:
 		saved_values[key] = queued_values[key]
 	var settings = FileAccess.open(PATH, FileAccess.WRITE)
-	var json_string = JSON.stringify(queued_values)
+	var json_string = JSON.stringify(saved_values)
 	print(json_string)
 	settings.store_string(json_string)
 	settings.close()
 	done.emit(saved_values)
+	contains_language_quene()
+	
 	

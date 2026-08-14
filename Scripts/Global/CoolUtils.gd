@@ -52,6 +52,11 @@ func gravity(delta:float, char:BaseChar):
 	if not char.is_on_floor():
 		char.velocity.y += char.get_gravity().y * delta
 	
+func get_item_id(options: OptionButton, target: String) -> int:
+	for i in range(options.item_count):
+		if options.get_item_text(i) == target:
+			return i
+	return 0
 	
 func set_doable(special: SpecialAbility, value: bool):
 	special.is_doable = value
@@ -64,7 +69,6 @@ func create_hitsound(sound: AudioStream, caller: Node2D):
 	caller.add_child(hitsound)
 
 func get_dominant_color(tex: Texture2D) -> Color:
-	#NOTE: the CPU is doing too much, anyone who works on this please DO NOT CALL this every frame
 	var count_by_color: Dictionary= {}
 	
 	var image = tex.get_image()
@@ -136,6 +140,10 @@ func flash(array: Array, color: Color, mat: ShaderMaterial, tween: Tween):
 		tween.tween_callback(func(): mat.set_shader_parameter("intens", p))
 		tween.tween_interval(0.1)
 		
+func translate_setting(ui_node: Control, key_name, tool_tip):
+	ui_node.text = tr(key_name)
+	ui_node.tooltip_text = tr(tool_tip)
+		
 func handle_error(error: Variant): 
 	Err.err = error
 	get_tree().change_scene_to_file("res://Scenes/ERROR.tscn")
@@ -159,6 +167,7 @@ func shake(currentshake:float, x:bool, y:bool) -> Vector2:
 	return Vector2(randf_range(-currentshake, currentshake) * float(x), randf_range(-currentshake, currentshake) * float(y))
 	
 var pause_active:bool = false
+
 func hitpause(h: int):
 	if pause_active: 
 		return

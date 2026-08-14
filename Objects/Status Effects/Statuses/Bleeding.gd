@@ -8,7 +8,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	super(delta)
 		
-func hit(cur): #id thought itd be funny
+func hit(cur):
 	if who.health.health <= 10:
 		queue_free()
 		return

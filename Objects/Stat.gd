@@ -7,5 +7,7 @@ func _ready() -> void:
 	hp(HP.health, 0, false)
 	
 func hp(cur, last, change_face):
-	var percent = HP.health/HP.max_health*100
-	text = "Score: 0 -- HP: %d%% (%02d/%02d)" % [percent, HP.health, HP.max_health]
+	text = tr("KEY_SCORE").format(
+	{"score": 0, 
+	"health": int(HP.health),
+	"max_health": int(HP.max_health)})

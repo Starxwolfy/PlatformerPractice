@@ -31,12 +31,17 @@ BPMHandler="*uid://bmx4a2nal4r6q"
 Volume="*uid://6sadwfn4qmiu"
 WindowSize="*uid://2mgwete3nv8s"
 Settings="*uid://6lis4vmsru7f"
+Language="*uid://cu4inj0u8w731"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
 mouse_cursor/custom_image="uid://cyhn3dwelddf5"
+
+[dotnet]
+
+project/assembly_name="funnyer"
 
 [input]
 
@@ -103,6 +108,10 @@ VolMUTE={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":48,"key_label":0,"unicode":48,"location":0,"echo":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://TRANSLATIONS/main.en.translation", "res://TRANSLATIONS/main.ja.translation")
 
 [physics]
 

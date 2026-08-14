@@ -1,0 +1,8 @@
+key,en,ja
+KEY_VISUAL,"Visual","ビジュアル"
+KEY_SHADERS,"Shaders","シェーダー"
+KEY_SHADERS_TOOLTIP,"If unchecked, will disable shaders. (i.e damage flashes, etc)","シェーダーを表示するかをします"
+KEY_APPLY,"apply","セーブ"
+KEY_TEST,"test", "テスト"
+KEY_LANGUAGE,"Language", "言語"
+KEY_SCORE,"Score: {score} | HP: {health}/{max_health}","スコア: {score} | HP: {health}/{max_health}"
